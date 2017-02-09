@@ -1,7 +1,7 @@
-FROM ubuntu:16.04
+FROM alpine:3.5
 LABEL maintainer "Watchanon Numnam <jiramot@gmail.com>"
 
-RUN apt-get update && apt-get install -qq pdftk \
-  && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache pdftk bash \
+  && rm -rf /var/cache/apk/*
 
 WORKDIR /pdf
